@@ -1,12 +1,16 @@
-"use strict";
+'use strict';
 
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _react = require("react");
+var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
@@ -18,28 +22,40 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : _defaults(subClass, superClass); }
 
+var propTypes = {
+    logo: _propTypes2["default"].func //自定义Logo
+};
+
+var defaultProps = {};
+
 var HeaderCenter = function (_Component) {
     _inherits(HeaderCenter, _Component);
 
     function HeaderCenter(props) {
         _classCallCheck(this, HeaderCenter);
 
-        return _possibleConstructorReturn(this, _Component.call(this, props));
+        var _this = _possibleConstructorReturn(this, _Component.call(this, props));
+
+        _this.renderLogo = function () {
+            return _react2["default"].createElement('img', { src: '//design.yonyoucloud.com/static/tinper-acs/ac-navbar/logo.svg', className: 'portal-logo' });
+        };
+
+        return _this;
     }
 
     HeaderCenter.prototype.render = function render() {
         var logo = this.props.logo;
 
         return _react2["default"].createElement(
-            "div",
-            { className: "header-center" },
+            'div',
+            { className: 'header-center' },
             _react2["default"].createElement(
-                "a",
-                { href: "javascript:;" },
+                'a',
+                { href: 'javascript:;' },
                 _react2["default"].createElement(
-                    "div",
-                    { className: "portal-logo-container" },
-                    logo ? logo : _react2["default"].createElement("img", { src: '//design.yonyoucloud.com/static/tinper-acs/ac-navbar/logo.svg', className: "portal-logo" })
+                    'div',
+                    { className: 'portal-logo-container' },
+                    logo ? logo() : this.renderLogo()
                 )
             )
         );
@@ -48,5 +64,7 @@ var HeaderCenter = function (_Component) {
     return HeaderCenter;
 }(_react.Component);
 
+HeaderCenter.propTypes = propTypes;
+HeaderCenter.defaultProps = defaultProps;
 exports["default"] = HeaderCenter;
-module.exports = exports["default"];
+module.exports = exports['default'];

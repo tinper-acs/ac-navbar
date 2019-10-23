@@ -64,10 +64,6 @@ var HeaderRight = function (_Component) {
   HeaderRight.prototype.render = function render() {
     var self = this;
     var maxed = this.state.maxed;
-    var _props = this.props,
-        intl = _props.intl,
-        unreadMsg = _props.unreadMsg,
-        UserMenuObj = _props.UserMenuObj;
 
     return _react2["default"].createElement(
       "div",
@@ -84,20 +80,6 @@ var HeaderRight = function (_Component) {
             return self.minifunc(e);
           }, "data-ref": "taskcenter", name: "最小化", title: "最小化", className: "navbar-avatar", titlekey: "最大化" },
         _react2["default"].createElement(_beeIcon2["default"], { type: "uf-minimize", style: { "fontSize": "18px" } })
-      ),
-      _react2["default"].createElement(
-        "a",
-        { id: "taskCenterBox", value: "taskcenter", onClick: function onClick(e) {
-            return self.handleDefault(e);
-          }, "data-ref": "taskcenter", name: "任务中心", title: "任务中心", href: "##", className: "navbar-avatar", titlekey: "任务中心" },
-        _react2["default"].createElement(_beeIcon2["default"], { type: "uf-pass-s-o", className: "pap pap-task", style: { "fontSize": "18px" } })
-      ),
-      _react2["default"].createElement(
-        "a",
-        { id: "messageCount", value: "msgCenter", onClick: function onClick(e) {
-            return self.handleDefault(e);
-          }, "data-ref": "msgCenter", name: "消息中心", title: "消息中心", href: "##", className: "navbar-avatar", titlekey: "消息中心" },
-        _react2["default"].createElement(_beeIcon2["default"], { type: "uf-bell-o", className: "pap pap-massage u-badge", style: { "fontSize": "18px" } })
       )
     );
   };
